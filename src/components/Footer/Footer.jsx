@@ -15,8 +15,9 @@ const Footer = () => {
         container spacing={2}
         sx={{
             backgroundColor:'#214457',
-            height: '371px',   
+            height: '100%',   
             paddingTop: '48px',
+            paddingBottom: '20px',
             marginTop: '162px'}}>
         <Grid item xs={3}>
             <Box sx={{display: 'flex', width: '100%', height: '50px', marginLeft: '112px'}}> 
@@ -58,7 +59,7 @@ const Footer = () => {
             </Box>            
         </Grid>
         <Grid item xs={3}>
-            <Box sx={{marginLeft: '328px'}}>
+            <Box sx={{marginLeft: '290px'}}>
                 <Typography 
                     variant='p' 
                     sx={{
@@ -77,7 +78,7 @@ const Footer = () => {
             </Box>
         </Grid>
         <Grid item xs={3}>
-            <Box sx={{marginLeft: '160px'}}>
+            <Box sx={{marginLeft: '110px'}}>
                 <Typography 
                     variant='p' 
                     sx={{
@@ -96,7 +97,7 @@ const Footer = () => {
             </Box>
         </Grid>
         <Grid item xs={3}>
-            <Box sx={{marginLeft: '46px'}}>
+            <Box >
                 <Typography 
                     variant='p' 
                     sx={{
@@ -116,18 +117,18 @@ const Footer = () => {
                     Telp : 083849420146 <br/>
                     Email : Johndoe@seeevent.com
                 </Typography>
+                <Box 
+                    sx={{
+                        marginTop: '115px',                         
+                        display: 'flex',                   
+                        }} 
+                        className="foot-bottom-right">
+                    <Typography>Privacy Policy</Typography>
+                    <Typography>Terms of Service</Typography>
+                    <Typography>Helps</Typography>
+                </Box>  
             </Box>
-            <Box 
-                sx={{
-                    marginTop: '115px', 
-                    marginLeft: '46px', 
-                    display: 'flex',                   
-                    }} 
-                    className="foot-bottom-right">
-                <p>Privacy Policy</p>
-                <p>Terms of Service</p>
-                <p>Helps</p>
-            </Box>    
+  
         </Grid>
       </Grid>
       
