@@ -3,11 +3,13 @@ import Footer from './components/Footer/Footer';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import About from './pages/About';
 import EventDetail from './components/EventDetail/EventDetail';
+import SearchFilter from './components/SearchFilter/SearchFilter';
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
+      <SearchFilter/>
       <EventDetail/>
       <Footer/>
 
