@@ -12,9 +12,13 @@ const ButtonSignIn = () => {
                 // href="/about" //coba link ke pages
                 color="inherit"
                 sx={{
-                    marginRight: '24px',
+                    // marginRight: '14px',
+                    // marginLeft: '64px',
+                    width: '90px',
+                    height: '40px',
                     fontFamily:'Noto Sans',
-                    fontSize: '18px'}}>
+                    fontSize: '18px',
+                    textTransform: 'unset'}}>
             Sign In
             </Button>
     )

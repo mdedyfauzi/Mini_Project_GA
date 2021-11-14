@@ -5,9 +5,12 @@ const ButtonSignUp = () => {
         <Button 
             color="inherit"
             sx={{
-                marginRight: '108px',
+                marginRight: '10px',
+                width: '90px',
+                height: '40px',
                 fontFamily:'Noto Sans',
-                fontSize: '18px'}}>
+                fontSize: '18px',
+                textTransform: 'unset'}}>
         Sign Up
         </Button> 
     )

@@ -13,6 +13,7 @@ import NavbarSearch from './NavbarSearch';
 
 const Navbar = () => {
   return (
+    
     <Box sx={{ flexGrow: 1 }}>
       <AppBar 
         position="static"
@@ -22,23 +23,30 @@ const Navbar = () => {
                 backgroundColor: '#214457',
                 height: '90px',                
             }}>
-          <img 
-            src={logo} alt="logo"
-            style={{ marginLeft: '112px' }} />                          
-          <Typography 
-            variant="h6" 
-            component="div" 
-            sx={{ 
-              flexGrow: 1,
-              marginLeft: 1,
-              fontFamily: 'Open Sans',
-              fontSize: '32px'}}>
-            See Event
-          </Typography>
-          <NavbarSearch/>
-          <ButtonSignIn/>
-          <ButtonSignUp/>
-          <ButtonCreateEvent/>
+            <Box sx={{ flexGrow: 0.2 }} />    
+            <img src={logo} alt="logo"/>                          
+            <Typography 
+              variant="h6"
+              noWrap 
+              component="div" 
+              sx={{
+                display: { xs: 'none', sm: 'block' }, 
+                flexGrow: 0.1,
+                marginLeft: 1,
+                fontFamily: 'Open Sans',
+                fontSize: '32px'}}>
+              See Event
+            </Typography>
+            <NavbarSearch/>
+
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ xs: 'none', sm: 'flex' }}>
+              <ButtonSignIn/>
+              <ButtonSignUp/>
+              
+              <ButtonCreateEvent/>
+            </Box>
+
         </Toolbar>
       </AppBar>
     </Box>
