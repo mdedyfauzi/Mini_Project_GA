@@ -18,7 +18,8 @@ const ButtonSignIn = () => {
                     height: '40px',
                     fontFamily:'Noto Sans',
                     fontSize: '18px',
-                    textTransform: 'unset'}}>
+                    textTransform: 'unset',
+                    textDecoration: 'none',}}>
             Sign In
             </Button>
     )

@@ -11,6 +11,7 @@ const ColorButton = styled(Button) (() => ({
     textTransform: 'unset',
     marginRight: '30px',
     marginLeft: '10px',
+    textDecoration: 'none',
     
     // boxShadow: '#F2D555',
     '&:hover': {
