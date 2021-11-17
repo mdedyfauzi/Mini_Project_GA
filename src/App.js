@@ -1,27 +1,21 @@
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import About from './pages/About';
-import EventDetail from './components/EventDetail/EventDetail';
-import SearchFilter from './components/SearchFilter/SearchFilter';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import SignIn from './pages/SignIn/SignIn';
+import SignUp from './pages/SignUp/SignUp';
+import MyAccount from './pages/MyAccount/MyAccount';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Router>
-      <Navbar/>
-      <SearchFilter/>
-      <EventDetail/>
-      <Footer/>
-
-      {/* coba link ke pages */}
-      
         <Switch>
-          <Route path='/about' component={About} /> 
+          <Route path="/" exact component={Home} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/account" component={MyAccount} />
         </Switch>
       </Router>
-
-    </div>
+    </>
   );
 }
 
