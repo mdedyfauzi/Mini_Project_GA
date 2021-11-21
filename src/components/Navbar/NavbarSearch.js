@@ -7,10 +7,9 @@ const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: '99px',
   backgroundColor: '#F0F0F1',
-  marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
+      marginLeft: theme.spacing(3),
       width: 'auto',
   },
 }));
@@ -34,6 +33,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
+      color: 'black',
       [theme.breakpoints.up('md')]: {
           width: '38ch',
       },
@@ -42,6 +42,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const NavbarSearch = () => {
+
+  
   return (
     <>
     
@@ -54,6 +56,9 @@ const NavbarSearch = () => {
             inputProps={{ 'aria-label': 'search' }}
         />
     </Search>
+    <div>
+      
+    </div>
     </>
 
   );

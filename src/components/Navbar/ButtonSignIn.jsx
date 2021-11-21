@@ -2,7 +2,7 @@ import  Button  from "@mui/material/Button";
 // import { useHistory } from 'react-router-dom';
 
 
-const ButtonSignIn = () => {
+const ButtonSignIn = ({onClick}) => {
 
     // const history = useHistory();
 
@@ -19,7 +19,8 @@ const ButtonSignIn = () => {
                     fontFamily:'Noto Sans',
                     fontSize: '18px',
                     textTransform: 'unset',
-                    textDecoration: 'none',}}>
+                    textDecoration: 'none',}}
+                    onClick={onClick}>
             Sign In
             </Button>
     )

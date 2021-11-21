@@ -1,7 +1,8 @@
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import { useHistory } from 'react-router';
   
-const ColorButton = styled(Button) (() => ({
+const CreateEvent = styled(Button) (() => ({
     color: '#373737',
     padding: '10px',
     width: '184px',
@@ -11,16 +12,17 @@ const ColorButton = styled(Button) (() => ({
     textTransform: 'unset',
     marginRight: '30px',
     marginLeft: '10px',
-    textDecoration: 'none',
+    boxShadow: 'none',
     
-    // boxShadow: '#F2D555',
+    
     '&:hover': {
       backgroundColor: '#f4dd77',
     },
   }));
   
-  export default function CustomizedButtons() {
+  export default function ButtonCreateEvent() {
+    const history = useHistory();
     return (      
-        <ColorButton variant="contained">Create Event</ColorButton>        
+        <CreateEvent variant="contained" onClick={() => history.push("/detail")}>Create Event</CreateEvent>        
     );
   }
