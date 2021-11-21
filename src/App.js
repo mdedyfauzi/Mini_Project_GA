@@ -1,28 +1,29 @@
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import About from './pages/About';
-import EventDetail from './components/EventDetail/EventDetail';
-import SearchFilter from './components/SearchFilter/SearchFilter';
+import SignIn from './pages/SignIn';
+import Detail from './pages/Detail';
+import Home from './pages/Home/Home';
+import DefaultLayout from './components/DefaultLayout/DefaultLayout'
+import SignUp from './pages/SignUp';
+import Search from './pages/Search';
+// import EventDetail from './components/EventDetail/EventDetail';
+// import CardSearch from './components/CardSearch/CardSearch'
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-      <Navbar/>
-      <SearchFilter/>
-      <EventDetail/>
-      <Footer/>
-
-      {/* coba link ke pages */}
-      
-        <Switch>
-          <Route path='/about' component={About} /> 
-        </Switch>
-      </Router>
-
-    </div>
-  );
+    <Router>
+          <Switch>
+              
+              <Route exact path='/' component={Home}/>
+              <DefaultLayout> 
+                <Route  path='/signin' component={SignIn} />
+                <Route  path='/signup' component={SignUp} />
+                <Route  path='/detail' component={Detail}/>
+                <Route path='/search' component={Search}/> 
+                               
+              </DefaultLayout>
+          </Switch>
+    </Router> 
+  ); 
 }
 
 export default App;
