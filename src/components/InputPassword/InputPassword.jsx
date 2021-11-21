@@ -1,51 +1,50 @@
 import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import {IconButton, OutlinedInput,InputLabel, InputAdornment, FormControl, FormHelperText} from '@mui/material';
+import { useState } from 'react';
+import {Visibility, VisibilityOff} from '@mui/icons-material';
 
-export default function InputPassword({ text }) {
-  const [values, setValues] = React.useState({
-    password: '',
+export default function InputPassword({ text, name, data, changeHandler, errorMessage, error }) {
+
+  const [toggle, setToggle] = useState({
     showPassword: false,
   });
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+  
+  const response = (data !== '' ? false : true );
 
   const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
+    setToggle({...toggle,
+      showPassword: !toggle.showPassword,
     });
   };
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const handleMouseDownPassword = (e) => {
+    e.preventDefault();
   };
 
   return (
     <div>
-      <FormControl sx={{ marginBottom: '2em' }}>
+      <FormControl 
+        error={error}
+        sx={{ marginBottom: '16px' }}>
         <InputLabel>{text}</InputLabel>
         <OutlinedInput
-          type={values.showPassword ? 'text' : 'password'}
-          value={values.password}
-          onChange={handleChange('password')}
+          type={toggle.showPassword ? 'text' : 'password'}
+          label={text}
+          value={data}
+          name={name}
+          onChange={(e) => changeHandler(e)}
           endAdornment={
             <InputAdornment position="end">
               <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword} edge="end">
-                {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                {toggle.showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>
           }
-          label={text}
           sx={{ width: 600 }}
         />
+        <FormHelperText 
+          sx={{visibility:(response !== true ? 'hidden' : 'visible')}} >{errorMessage}
+          </FormHelperText>
       </FormControl>
     </div>
   );

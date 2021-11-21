@@ -44,5 +44,16 @@
       "title": "How to make your business growth 10 times within 1 year",
       "author": "Adit nento"
     }
+  ],
+
+  "user": [
+    {
+      "userid": 1,
+      "firtstName": "https://s3-alpha-sig.figma.com/img/9568/ceda/08c92da8d94729fd2bf373c902589f2d?Expires=1638144000&Signature=Mvr2UIhL-kSqCbvkmg8lcVt1br-z-WzJT~umpPsm8WIzIhJIVivm3A~ZBWTSfwh7socNZc9KpVNbUH7hLiHd5Ze~kClck0FLOHpPnL~LB3RsdsTaioW-HrG-D-2yhQN92Lh2Mmta7Du8EVmZbCHyQGrCL-w2a2O2~0dHFDRrI6EcMvi50A5WXktDUPge67m8LQy5Dy~ekKRk3aaWB6LLx5u9f2JW6ZwrlKQikk~XkxK8YxFM7juVtibIY3Gjkg1M-sJT6a9lzXFrG08DTWjJySpTIksmc8jMQR2VyP66PS8Z8E7A7bhvzbV7AUD5IXkUPVZHxWZPxj-0jaOG7c-oZA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      "lastName": "Business",
+      "email": "SUN, OCT 24 @ 1:15 AM ICT",
+      "password": "How to make your business growth 10 times within 1 year",
+      "token": "This is dummyToken"
+    }
   ]
 }

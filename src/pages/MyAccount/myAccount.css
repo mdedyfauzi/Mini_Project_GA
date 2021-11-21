@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .myHero {
@@ -28,8 +27,11 @@
 }
 
 .myHero-img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
   margin-bottom: 11px;
-  border-radius: 50%;
+  border-radius: 100px;
 }
 
 .myHero-Id h1 {
