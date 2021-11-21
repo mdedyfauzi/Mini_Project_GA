@@ -1,7 +1,9 @@
-import { Container, Typography, Stack, Pagination } from "@mui/material"
+import { Container, Typography, Stack } from "@mui/material"
 import CssBaseline from '@mui/material/CssBaseline';
+import CantFind from "./CantFind/CantFind";
 import CategoryFilter from "./Category/CategoryFilter";
 import FilterDate from "./Date/DateFilter";
+import PageContent from "./PageContent/PageContent";
 import SortFilter from "./Sorting By/SortFilter";
 
 
@@ -32,15 +34,13 @@ const SearchFilter = () => {
 
                 {/* sorting by..  */}
                 <SortFilter/>
+
+                
             </Stack>
-            <Pagination count={10} 
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: '95px'
-                }}
-            />
+
+            <CantFind/>
+
+            <PageContent/>
         </Container>
       </>
     )
