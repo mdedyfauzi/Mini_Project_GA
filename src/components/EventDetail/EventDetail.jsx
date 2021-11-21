@@ -5,7 +5,13 @@ import HeaderEvent from "./Header/HeaderEvent";
 import HeaderPhoto from "./Header/HeaderPhoto";
 import CreatedbySection from "./Section/CreatedbySection";
 
+
+
+
 const EventDetail = () => {
+
+
+
     return (
        <> 
         <CssBaseline />
@@ -25,7 +31,13 @@ const EventDetail = () => {
             </Grid>
 
                 {/* section Comments */}
-                <CommentsSection/>    
+                <div>
+                 
+                <CommentsSection />
+                </div>
+                
+                     
+                
           
         </Container>
        </> 

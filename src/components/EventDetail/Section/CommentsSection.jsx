@@ -1,11 +1,50 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, TextField } from "@mui/material";
 import yoshua from './../assets/yoshua.png';
-import agnes from './../assets/agnes.png';
-import bambang from './../assets/bambang.png';
-import InputComment from "../Input/InputComment";
-import ButtonComment from "../Button/ButtonComment";
+// import agnes from './../assets/agnes.png';
+// import bambang from './../assets/bambang.png';
+// import InputComment from "../Input/InputComment";
+// import ButtonComment from "../Button/ButtonComment";
+import { useState, useEffect } from "react";
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { Button } from '@mui/material';
+import axios from "axios";
+
 
 const CommentsSection = () => {
+
+    const [listComment, setListComment] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState("");
+    
+
+    const getComment = async () => {
+        try {
+            const res = await axios.get(`https://timcevent.herokuapp.com/comments`);
+            setListComment(res.data.data.slice(0,4));
+            console.log(res.data.data);
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+        getComment();
+    }, []);
+
+    const addComment = () => {
+        axios
+          .post(`https://timcevent.herokuapp.com/comments`, {
+            comment: newComment
+          })
+          .then((response) => {
+            console.log(response);
+            localStorage.setItem('token', response.data.data.token);  
+            const commentToAdd = { comment: newComment };
+            setComments([...comments, commentToAdd]);
+            setNewComment("");
+          });
+      };
+
     return (
             <Box sx={{width: '600px'}}>    
                 <Typography
@@ -17,31 +56,41 @@ const CommentsSection = () => {
                     }}>
                     Comments
                 </Typography>
-                <Box sx={{display:'flex', marginTop: '32px'}} >
-                    <img src={yoshua} alt="" />
-                    <Box sx={{marginLeft: '16px'}}>
-                        <Typography
-                        sx={{
-                            fontFamily: 'Noto Sans',
-                            fontSize: '16px',
-                            fontWeight: 'bold'
-                        }} >
-                            Yoshua Ginting
-                        </Typography>
-                        <Typography 
-                        sx={{
-                            fontFamily: 'Noto Sans',
-                            fontSize: '12px'
-                        }} >
-                            4 Days ago
-                        </Typography>
+                {listComment.map((item,key) => (
+                    <>
+                    <Box sx={{display:'flex', marginTop: '32px'}} >
+                        <img src={yoshua} alt="" />
+                        <Box sx={{marginLeft: '16px'}}>
+                            
+                            <Typography
+                            
+                            sx={{
+                                fontFamily: 'Noto Sans',
+                                fontSize: '16px',
+                                fontWeight: 'bold'
+                            }} >
+                                Agnes Mo
+                            </Typography> 
+                            
+                            
+                            <Typography
+                             
+                            sx={{
+                                fontFamily: 'Noto Sans',
+                                fontSize: '12px'
+                            }} >
+                                4 Hours ago
+                            </Typography> 
+                        </Box>
                     </Box>
-                </Box>                
-                <Typography sx={{marginTop: '16px', fontFamily: 'Noto Sans'}}>
-                    Hi, do you have a youtube channel that I can subscribe?
-                </Typography>
-
-                <Box sx={{display:'flex', marginTop: '32px'}} >
+                                
+                    <Typography key={key} sx={{marginTop: '16px', fontFamily: 'Noto Sans'}}>
+                        {item.comment}
+                    </Typography>
+                    </>
+                ))}     
+                     
+                {/* <Box sx={{display:'flex', marginTop: '32px'}} >
                     <img src={agnes} alt="" />
                     <Box sx={{marginLeft: '16px'}}>
                         <Typography
@@ -87,10 +136,46 @@ const CommentsSection = () => {
                 </Box>                
                 <Typography sx={{marginTop: '16px', fontFamily: 'Noto Sans'}}>
                     Good Event!
-                </Typography>
+                </Typography> */}
 
-                <InputComment/>
-                <ButtonComment/>
+                {/* <InputComment  /> */}
+                <TextField 
+                    multiline 
+                    placeholder="Enter your comment here"
+                    rows={4}
+                    value = {newComment}
+                    onChange={(event) => {
+                        setNewComment(event.target.value);
+                      }}
+                    sx=
+                    {{
+                    width: '496px',
+                    marginTop: '16px'
+                    
+                    }} />
+                {/* <ButtonComment /> */}
+                <Button 
+                    variant="contained"
+                    onClick={addComment} 
+                    startIcon={<ChatBubbleOutlineIcon />}
+                    sx={{ 
+                        color: "white",
+                        marginTop: '16px',
+                        padding: '10px',
+                        backgroundColor: '#214457',
+                        border: '3px solid',
+                        borderRadius: '30px',
+                        fontFamily: 'Noto Sans',
+                        boxShadow: 'none',
+                        width: '184px',
+                        marginLeft: '320px',
+                        textTransform: 'unset',
+                        '&: hover': {
+                            boxShadow: 'none',
+                            backgroundColor: '#4d6978'
+                        } }}> 
+                    Submit
+                </Button>
             </Box>
     )
 }
