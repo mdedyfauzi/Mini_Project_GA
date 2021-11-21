@@ -1,13 +1,17 @@
-import EventDetail from "../components/EventDetail/EventDetail"
-import Footer from "../components/Footer/Footer"
-
+import EventDetail from "../components/EventDetail/EventDetail";
+// import { useHistory } from "react-router-dom";
 
 const Detail = () => {
-    return (
-        <>
-        <EventDetail/>
-        <Footer/>
-        </>
-    )
-}
-export default Detail
+  // const history = useHistory();
+  // const { location } = history;
+  // const { pathname } = location;
+  // console.log(history);
+  // console.log(pathname)
+
+  return (
+    <>
+      <EventDetail />
+    </>
+  );
+};
+export default Detail;
