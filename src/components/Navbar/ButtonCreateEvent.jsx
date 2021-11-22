@@ -10,11 +10,8 @@ const CreateEvent = styled(Button) (() => ({
     borderRadius: '30px',
     backgroundColor: '#F2D555',
     textTransform: 'unset',
-    marginRight: '30px',
-    marginLeft: '10px',
-    boxShadow: 'none',
-    
-    
+    textDecoration: 'none',
+    // boxShadow: '#F2D555',
     '&:hover': {
       backgroundColor: '#f4dd77',
     },

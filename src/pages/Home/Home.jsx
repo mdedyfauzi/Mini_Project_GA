@@ -5,7 +5,6 @@ import { OutlinedInput, InputAdornment, FormControl, Button } from '@mui/materia
 import Card from '../../components/Card/Card';
 import Footer from '../../components/Footer/Footer';
 import './home.css';
-import NavbarHome from '../../components/NavbarHome/NavbarHome';
 import { useHistory } from 'react-router';
 
 const Home = () => {
@@ -58,7 +57,6 @@ const Home = () => {
     <>
       <div className="container-header">
         <div className="header">
-          <NavbarHome />
           <div className="header-wrapper">
             <h1 className="header-heading">
               <span>Create</span> or <span>Find</span> interesting <span>Events</span> around The World
