@@ -20,7 +20,7 @@ const CommentsSection = () => {
     const getComment = async () => {
         try {
             const res = await axios.get(`https://timcevent.herokuapp.com/comments`);
-            setListComment(res.data.data.slice(0,4));
+            setListComment(res.data.data);
             console.log(res.data.data);
         } catch (error) {
             console.log(error)
@@ -34,6 +34,8 @@ const CommentsSection = () => {
     const addComment = () => {
         axios
           .post(`https://timcevent.herokuapp.com/comments`, {
+            Headers: {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImZpcnN0TmFtZSI6IkJhYmF6IiwibGFzdE5hbWUiOiJLcmVzbmEiLCJlbWFpbCI6ImtyZXNuYUBnbWFpbC5jb20iLCJpYXQiOjE2MzcxMzg1NjJ9.S9OlODAkODDKnEmZbvjOqUk6iPlZNyyz5ShNypL1jys'}
+          }, {      
             comment: newComment
           })
           .then((response) => {
