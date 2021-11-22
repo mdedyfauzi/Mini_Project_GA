@@ -10,20 +10,28 @@ import ButtonCreateEvent from './ButtonCreateEvent';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import NavbarSearch from './NavbarSearch';
-import setAvatar from '../Avatar/Avatar';
+import SetAvatar from './SetAvatar'
 
-const Navbar = () => {
+const Navbar = (props) => {
   const signInToken = localStorage.getItem('token');
   console.log(signInToken)
   const location = useLocation()
   console.log(location)
-  const Home = window.location.pathname === "/";
+  //const Home = window.location.pathname === "/";
+
+  const targetPages = {
+    home : window.location.pathname === "/",
+    account : window.location.pathname === "/account",
+    search : window.location.pathname === "/search",
+    detail : window.location.pathname === "/detail"
+  };
+
   return (
     <AppBar 
-    position= {Home ? 'absolute' : 'relative'}
+    position= {targetPages.home ? 'absolute' : 'relative'}
     zIndex
     style={{ 
-      background: (Home ? 'transparent' : '#214457'),
+      background: (targetPages.home ? 'transparent' : '#214457'),
       boxShadow: 'none',
       }}>
       <Toolbar sx={{ 
@@ -58,9 +66,18 @@ const Navbar = () => {
               </Typography>
             </Box>
           </Link>
-          <NavbarSearch />
+          {window.location.pathname === ("/search" || "/detail") ?  (
+            <NavbarSearch />
+            ) : null}
           <Box/>
-          {signInToken === '' ? (
+          <Box sx={{ display:'flex', flexDirection:'row'}}>
+          {window.location.pathname === "/account" ?  (
+            <ButtonCreateEvent />
+            ) : null}
+            {window.location.pathname === "/account" ?  (
+            <span className='divider'></span>
+            ) : null}
+          {signInToken === null || '' ? (
             <Box sx={{ xs: 'none', sm: 'flex' }}>
               <Link to="/signin">
               <ButtonSignIn />
@@ -70,14 +87,27 @@ const Navbar = () => {
               </Link>
             </Box>
             ):(
-            <Box sx={{ xs: 'none', sm: 'flex' }}>
-              <setAvatar/>
-              <Typography>Avatar</Typography>
+              <Link to="/account">
+            <Box sx={{ 
+              xs: 'none', 
+              display:'flex',  
+              flexDirection: 'row',
+              textJustify:'initial'
+              }}>
+                <SetAvatar />
+                <Typography sx={{
+                  fontWeight: 'bold',
+                  fontSize: '16px',
+                  marginTop:'auto',
+                  marginBottom:'auto',
+                  marginLeft:'16px'
+                  }}>
+                  Avatar
+                </Typography>
             </Box>
+            </Link>
             )}
-            <Link to="/about">
-              <ButtonCreateEvent />
-            </Link>  
+            </Box>  
         </Toolbar>
       </AppBar>
   );

@@ -30,9 +30,10 @@ function stringAvatar(name) {
   };
 }
 
-export default function setAvatar() {
+export default function SetAvatar() {
   return (
-    <Avatar 
+    <Avatar
+    sx={{margin:'auto'}}
         {...stringAvatar('Kent Dodds')} 
         alt="Remy Sharp" 
         src="/static/images/avatar/1.jpg"

@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
 import InputText from '../../components/InputText/InputText';
 import InputPassword from '../../components/InputPassword/InputPassword';
 import ButtonLog from '../../components/ButtonLog/ButtonLog';

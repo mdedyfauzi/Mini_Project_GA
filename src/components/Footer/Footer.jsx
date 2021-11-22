@@ -16,6 +16,7 @@ const Footer = () => {
         height: '100%',
         paddingTop: '48px',
         paddingBottom: '20px',
+        marginTop:'0px'
       }}
     >
       <Grid item xs={3}>

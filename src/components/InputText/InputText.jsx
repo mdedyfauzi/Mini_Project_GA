@@ -7,7 +7,9 @@ const InputText = ({ text, name, data, changeHandler, errorMessage, error }) => 
     <>
       <FormControl  
         error={error}
-        sx={{ marginBottom: '16px', width: 600 }}>
+        sx={{ 
+          marginBottom: '16px', 
+          width: 600 }}>
         <InputLabel>{text}</InputLabel>
         <OutlinedInput
           label={text} 
