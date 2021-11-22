@@ -109,7 +109,7 @@ const Home = () => {
           </div>
           <div className="content-wrapper">
             <div className="content-heading">
-              <h1>Desaign events</h1>
+              <h1>Design events</h1>
               <p onClick={() => history.push("/search")}>more events</p>
             </div>
             <div className="content-card">{event && event.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
