@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SignIn from './pages/SignIn';
+import Detail from './pages/Detail';
+import Home from './pages/Home/Home';
+import DefaultLayout from './components/DefaultLayout/DefaultLayout'
+import SignUp from './pages/SignUp';
+import Search from './pages/Search';
+// import EventDetail from './components/EventDetail/EventDetail';
+// import CardSearch from './components/CardSearch/CardSearch'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+          <Switch>
+              
+              <Route exact path='/' component={Home}/>
+              <DefaultLayout> 
+                <Route  path='/signin' component={SignIn} />
+                <Route  path='/signup' component={SignUp} />
+                <Route  path='/detail' component={Detail}/>
+                <Route path='/search' component={Search}/> 
+                               
+              </DefaultLayout>
+          </Switch>
+    </Router> 
+  ); 
 }
 
 export default App;

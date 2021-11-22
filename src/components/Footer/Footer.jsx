@@ -15,8 +15,9 @@ const Footer = () => {
         container spacing={2}
         sx={{
             backgroundColor:'#214457',
-            height: '371px',   
+            height: '100%',   
             paddingTop: '48px',
+            paddingBottom: '20px',
             marginTop: '162px'}}>
         <Grid item xs={3}>
             <Box sx={{display: 'flex', width: '100%', height: '50px', marginLeft: '112px'}}> 
@@ -50,7 +51,7 @@ const Footer = () => {
                     <img src={Twitter} alt="" />
                     <img src={Youtube} alt="" />
                 </Box>
-                <Box sx={{marginTop: '48px'}}>
+                <Box sx={{marginTop: '30px'}}>
                     <Typography variant='p' sx={{color: '#F8F8F8', fontFamily: 'Noto Sans',}}>
                         © 2021 SeeEvent All rights reserved.
                     </Typography>
@@ -58,7 +59,7 @@ const Footer = () => {
             </Box>            
         </Grid>
         <Grid item xs={3}>
-            <Box sx={{marginLeft: '328px'}}>
+            <Box sx={{marginLeft: '290px'}}>
                 <Typography 
                     variant='p' 
                     sx={{
@@ -68,7 +69,7 @@ const Footer = () => {
                         fontSize: '18px' }}>
                     Links
                 </Typography>
-                <Box sx={{marginTop: '16px'}}>    
+                <Box sx={{marginTop: '16px', width:'200px'}}>    
                     <li>Home</li>
                     <li>Explore</li>
                     <li>My Events</li>
@@ -77,7 +78,7 @@ const Footer = () => {
             </Box>
         </Grid>
         <Grid item xs={3}>
-            <Box sx={{marginLeft: '160px'}}>
+            <Box sx={{marginLeft: '110px'}}>
                 <Typography 
                     variant='p' 
                     sx={{
@@ -96,7 +97,7 @@ const Footer = () => {
             </Box>
         </Grid>
         <Grid item xs={3}>
-            <Box sx={{marginLeft: '46px'}}>
+            <Box >
                 <Typography 
                     variant='p' 
                     sx={{
@@ -116,12 +117,18 @@ const Footer = () => {
                     Telp : 083849420146 <br/>
                     Email : Johndoe@seeevent.com
                 </Typography>
+                <Box 
+                    sx={{
+                        marginTop: '115px',                         
+                        display: 'flex',                   
+                        }} 
+                        className="foot-bottom-right">
+                    <Typography>Privacy Policy</Typography>
+                    <Typography>Terms of Service</Typography>
+                    <Typography>Helps</Typography>
+                </Box>  
             </Box>
-            <Box sx={{marginTop: '115px', marginLeft: '46px', display: 'flex' }} className="foot-bottom-right" >
-                <p>Privacy Policy</p>
-                <p>Terms of Service</p>
-                <p>Helps</p>
-            </Box>    
+  
         </Grid>
       </Grid>
       
