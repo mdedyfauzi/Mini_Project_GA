@@ -15,10 +15,10 @@ function App() {
               
               <Route exact path='/' component={Home}/>
               <DefaultLayout> 
-                <Route  path='/signin' component={SignIn} />
-                <Route  path='/signup' component={SignUp} />
-                <Route  path='/detail' component={Detail}/>
-                <Route path='/search' component={Search}/> 
+                <Route  path='/signin' exact component={SignIn} />
+                <Route  path='/signup' exact component={SignUp} />
+                <Route  path='/detail/:id' exact component={Detail}/>
+                <Route path='/search' exact component={Search}/> 
                                
               </DefaultLayout>
           </Switch>
