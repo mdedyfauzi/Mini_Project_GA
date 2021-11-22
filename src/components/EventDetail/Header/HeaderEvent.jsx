@@ -1,7 +1,7 @@
 import { Typography, Box } from "@mui/material"
 import Calendar from './../assets/calendar.png'
 
-const HeaderEvent = () => {
+const HeaderEvent = ({title, time}) => {
     return (
         <>
             <Typography
@@ -10,7 +10,7 @@ const HeaderEvent = () => {
                     fontFamily: 'Noto sans',
                     fontWeight: 'bold',                    
                 }} >          
-                ESL Game: English on Your Feet! 
+                {title}
             </Typography>
             <Box sx={{display: 'flex', marginTop: '18.5px', }} >
                 <img src={Calendar} alt=""  style={{width:'35px'}}/>
@@ -18,7 +18,7 @@ const HeaderEvent = () => {
                         sx={{
                             paddingTop: '5px',
                             fontFamily: 'Noto Sans'}}>
-                        SUN, OCT 24 @ 1:15 AM ICT
+                        {time}
                 </Typography>
                 <Box 
                     sx={{

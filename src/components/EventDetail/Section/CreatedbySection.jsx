@@ -1,13 +1,13 @@
 import { Grid, Box, Typography,Stack } from "@mui/material"
 import ButtonShare from "../Button/ButtonShare"
 import ButtonBookmark from "../Button/ButtonBookmark"
-import pratur from './../assets/Pratur.png'
+// import pratur from './../assets/Pratur.png'
 
-const CreatedbySection = () => {
+const CreatedbySection = ({user}) => {
     return (
         <Grid item xs={6} >
             <Box sx={{display:'flex', justifyContent: 'center'}} >
-                <img src={pratur} alt="" />
+                <img src={user?.image} alt="" />
                 <Box>
                     <Typography 
                         sx={{
@@ -22,7 +22,7 @@ const CreatedbySection = () => {
                             fontSize: '16px',
                             fontWeight: 'bold'
                         }} >
-                            Pratur Anahata Pratama
+                            {user?.firstName}
                     </Typography>
                 </Box>
             </Box>

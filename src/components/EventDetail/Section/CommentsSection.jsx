@@ -34,7 +34,8 @@ const CommentsSection = () => {
     const addComment = () => {
         axios
           .post(`https://timcevent.herokuapp.com/comments`, {
-            Headers: {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImZpcnN0TmFtZSI6IkJhYmF6IiwibGFzdE5hbWUiOiJLcmVzbmEiLCJlbWFpbCI6ImtyZXNuYUBnbWFpbC5jb20iLCJpYXQiOjE2MzcxMzg1NjJ9.S9OlODAkODDKnEmZbvjOqUk6iPlZNyyz5ShNypL1jys'}
+            Headers: {
+                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImZpcnN0TmFtZSI6IkJhYmF6IiwibGFzdE5hbWUiOiJLcmVzbmEiLCJlbWFpbCI6ImtyZXNuYUBnbWFpbC5jb20iLCJpYXQiOjE2MzcxMzg1NjJ9.S9OlODAkODDKnEmZbvjOqUk6iPlZNyyz5ShNypL1jys'}
           }, {      
             comment: newComment
           })
