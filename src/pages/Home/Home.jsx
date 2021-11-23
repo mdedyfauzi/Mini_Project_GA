@@ -13,30 +13,29 @@ const Home = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
 
-  const getApi = async () => {
-    await axios
-      .get('https://timcevent.herokuapp.com/events/home')
-      .then(function (response) {
-        setEvent(response.data.dataStarted.slice(0, 4));
-        console.log(event);
-      })
-      .catch(function (error) {
-        //throw new Error(error);
-        console.log(error);
-      });
-  };
-
-  const getEvent = async () => {
-    try {
-      const res = await axios.get(`https://timcevent.herokuapp.com/events`);
-      setFilteredData(res.data.events);
-      console.log(res.data.events);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const getApi = async () => {
+      await axios
+        .get('https://timcevent.herokuapp.com/events/home')
+        .then(function (response) {
+          setEvent(response.data.dataStarted.slice(0, 4));
+          console.log(event);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    const getEvent = async () => {
+      try {
+        const res = await axios.get(`https://timcevent.herokuapp.com/events`);
+        setFilteredData(res.data.events);
+        console.log(res.data.events);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     getApi();
     getEvent();
   }, []);
