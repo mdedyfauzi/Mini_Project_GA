@@ -8,19 +8,19 @@ import { useHistory } from 'react-router';
 
 const Home = () => {
   const history = useHistory();
-  const [getEvents, setGetEvents] = useState([]);
+  const [getEventsSoon, setGetEventsSoon] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
 
-  const eventSoon = getEvents;
+  const eventSoon = getEventsSoon;
 
   useEffect(() => {
     const getApi = async () => {
       await axios
         .get('https://timcevent.herokuapp.com/events/home')
         .then(function (response) {
-          setGetEvents(response.data.dataStarted.slice(0, 4));
-          console.log(getEvents);
+          setGetEventsSoon(response.data.dataStarted.slice(0, 4));
+          console.log(getEventsSoon);
         })
         .catch(function (error) {
           console.log(error);
