@@ -27,7 +27,7 @@ const Home = () => {
         });
     };
 
-    const getEvent = async () => {
+    const getEventsCategory = async () => {
       try {
         const res = await axios.get(`https://timcevent.herokuapp.com/events`);
         setFilteredData(res.data.events);
@@ -38,7 +38,7 @@ const Home = () => {
     };
 
     getApi();
-    getEvent();
+    getEventsCategory();
   }, []);
 
   const handleFilter = (event) => {

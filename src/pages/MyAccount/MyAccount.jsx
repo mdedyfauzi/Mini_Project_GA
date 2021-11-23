@@ -1,6 +1,6 @@
 import ButtonSignOut from '../../components/ButtonSignOut/ButtonSignOut';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+/*import { useState, useEffect } from 'react';
+import axios from 'axios';*/
 import './myAccount.css';
 
 const MyAccount = () => {
