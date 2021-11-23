@@ -8,8 +8,6 @@ export default function InputPassword({ text, name, data, changeHandler, errorMe
     showPassword: false,
   });
 
-  const response = data !== '' ? false : true;
-
   const handleClickShowPassword = () => {
     setToggle({ ...toggle, showPassword: !toggle.showPassword });
   };

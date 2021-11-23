@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import { OutlinedInput, InputAdornment, FormControl, Button } from '@mui/material';
 import Card from '../../components/Card/Card';
-import Footer from '../../components/Footer/Footer';
 import './home.css';
 import { useHistory } from 'react-router';
 
@@ -12,8 +11,7 @@ const Home = () => {
   const [event, setEvent] = useState([]);
 
   const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
-  //const [slice, setSlice] = useState([]);
+  const [wordEntered, setWordEntered] = useState('');
 
   const getApi = async () => {
     await axios
@@ -30,13 +28,13 @@ const Home = () => {
 
   const getEvent = async () => {
     try {
-        const res = await axios.get(`https://timcevent.herokuapp.com/events`);
-        setFilteredData(res.data.events);
-        console.log(res.data.events);
+      const res = await axios.get(`https://timcevent.herokuapp.com/events`);
+      setFilteredData(res.data.events);
+      console.log(res.data.events);
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-};
+  };
 
   useEffect(() => {
     getApi();
@@ -50,7 +48,6 @@ const Home = () => {
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
     setFilteredData(newFilter);
-    
   };
 
   return (
@@ -76,7 +73,9 @@ const Home = () => {
                     </Button>
                   </InputAdornment>
                 }
-                placeholder="Search events" value={wordEntered} onChange={handleFilter}
+                placeholder="Search events"
+                value={wordEntered}
+                onChange={handleFilter}
                 sx={{ borderRadius: 10, backgroundColor: '#F0F0F1' }}
               />
               {filteredData.length !== 0 && (
@@ -91,9 +90,7 @@ const Home = () => {
                 </div>
               )}
             </FormControl>
-            
           </div>
-          
         </div>
       </div>
       <div className="container-content">
@@ -101,14 +98,14 @@ const Home = () => {
           <div className="content-wrapper">
             <div className="content-heading">
               <h1>Attend an event starting soon</h1>
-              <p onClick={() => history.push("/search")}>more events</p>
+              <p onClick={() => history.push('/search')}>more events</p>
             </div>
             <div className="content-card">{event && event.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
           </div>
           <div className="content-wrapper">
             <div className="content-heading">
               <h1>Design events</h1>
-              <p onClick={() => history.push("/search")}>more events</p>
+              <p onClick={() => history.push('/search')}>more events</p>
             </div>
             <div className="content-card">{event && event.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
           </div>
