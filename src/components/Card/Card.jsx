@@ -8,7 +8,7 @@ export default function ActionAreaCard({ image, category, date, title, author })
   const history = useHistory();
 
   return (
-    <Card sx={{ maxWidth: 288, boxShadow: 'none'}} onClick={() => history.push("/detail")}>
+    <Card sx={{ maxWidth: 288, boxShadow: 'none'}} onClick={() => history.push("/detail/1")}>
       <CardActionArea>
         <CardMedia component="img" height="200" image={image} alt="event" />
         <CardContent sx={{ padding: 0, marginTop: 2, marginLeft: 1, marginBottom: 2, marginRight: 1 }}>

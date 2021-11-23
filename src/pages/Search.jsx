@@ -1,4 +1,4 @@
-import CardSearch from './../components/CardSearch/CardSearch'
+import CardSearch from '../components/CardSearch/CardSearch'
 import { Stack, Container, CssBaseline } from '@mui/material'
 import { useState, useEffect } from 'react';
 import axios from 'axios';

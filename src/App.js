@@ -3,6 +3,8 @@ import Home from './pages/Home/Home';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import MyAccount from './pages/MyAccount/MyAccount';
+import Detail from './pages/Detail';
+import Search from './pages/Search'
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
@@ -16,6 +18,8 @@ function App() {
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/account" component={MyAccount} />
+          <Route path="/detail" component={Detail} />
+          <Route path="/search" component={Search} />
         </Switch>
         <Footer/>
       </Router>

@@ -18,8 +18,7 @@ const InputText = ({ text, name, data, changeHandler, errorMessage, error }) => 
           onChange={(e) => changeHandler(e)} 
           fullWidth 
           />
-          <FormHelperText 
-          sx={{visibility:(response !== true ? 'hidden' : 'visible')}} >{errorMessage}
+          <FormHelperText >{errorMessage}
           </FormHelperText>
       </FormControl>
     </>

@@ -1,20 +1,17 @@
 import * as React from 'react';
-import {IconButton, OutlinedInput,InputLabel, InputAdornment, FormControl, FormHelperText} from '@mui/material';
+import { IconButton, OutlinedInput, InputLabel, InputAdornment, FormControl, FormHelperText } from '@mui/material';
 import { useState } from 'react';
-import {Visibility, VisibilityOff} from '@mui/icons-material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 export default function InputPassword({ text, name, data, changeHandler, errorMessage, error }) {
-
   const [toggle, setToggle] = useState({
     showPassword: false,
   });
-  
-  const response = (data !== '' ? false : true );
+
+  const response = data !== '' ? false : true;
 
   const handleClickShowPassword = () => {
-    setToggle({...toggle,
-      showPassword: !toggle.showPassword,
-    });
+    setToggle({ ...toggle, showPassword: !toggle.showPassword });
   };
 
   const handleMouseDownPassword = (e) => {
@@ -23,9 +20,7 @@ export default function InputPassword({ text, name, data, changeHandler, errorMe
 
   return (
     <div>
-      <FormControl 
-        error={error}
-        sx={{ marginBottom: '16px' }}>
+      <FormControl error={error} sx={{ marginBottom: '16px' }}>
         <InputLabel>{text}</InputLabel>
         <OutlinedInput
           type={toggle.showPassword ? 'text' : 'password'}
@@ -42,9 +37,7 @@ export default function InputPassword({ text, name, data, changeHandler, errorMe
           }
           sx={{ width: 600 }}
         />
-        <FormHelperText 
-          sx={{visibility:(response !== true ? 'hidden' : 'visible')}} >{errorMessage}
-          </FormHelperText>
+        <FormHelperText>{errorMessage}</FormHelperText>
       </FormControl>
     </div>
   );

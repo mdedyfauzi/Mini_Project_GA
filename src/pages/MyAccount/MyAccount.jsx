@@ -1,7 +1,37 @@
 import ButtonSignOut from '../../components/ButtonSignOut/ButtonSignOut';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './myAccount.css';
 
 const MyAccount = () => {
+  const [myAccount, setMyAccount] = useState([]);
+  const Account = async () => {
+    await axios
+      .get(
+        'https://timcevent.herokuapp.com/users',
+        {
+          Headers: {
+            token: localStorage.getItem('token'),
+          },
+        },
+        {
+          email: 'larina@gmail.com',
+          password: '@larinA99',
+        }
+      )
+      .then((response) => {
+        setMyAccount(response.data.userDetail);
+        console.log(myAccount);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    Account();
+  }, []);
+
   return (
     <>
       <div className="container">
