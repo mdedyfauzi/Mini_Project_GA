@@ -8,7 +8,7 @@ import { useHistory } from 'react-router';
 
 const Home = () => {
   const history = useHistory();
-  const [event, setEvent] = useState([]);
+  const [getEvents, setGetEvents] = useState([]);
 
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
@@ -18,8 +18,8 @@ const Home = () => {
       await axios
         .get('https://timcevent.herokuapp.com/events/home')
         .then(function (response) {
-          setEvent(response.data.dataStarted.slice(0, 4));
-          console.log(event);
+          setGetEvents(response.data.dataStarted.slice(0, 4));
+          console.log(getEvents);
         })
         .catch(function (error) {
           console.log(error);
@@ -99,14 +99,14 @@ const Home = () => {
               <h1>Attend an event starting soon</h1>
               <p onClick={() => history.push('/search')}>more events</p>
             </div>
-            <div className="content-card">{event && event.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
+            <div className="content-card">{getEvents && getEvents.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
           </div>
           <div className="content-wrapper">
             <div className="content-heading">
               <h1>Design events</h1>
               <p onClick={() => history.push('/search')}>more events</p>
             </div>
-            <div className="content-card">{event && event.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
+            <div className="content-card">{getEvents && getEvents.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
           </div>
         </div>
       </div>

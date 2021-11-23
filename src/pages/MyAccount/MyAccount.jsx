@@ -5,7 +5,7 @@ import './myAccount.css';
 
 const MyAccount = () => {
   const [myAccount, setMyAccount] = useState([]);
-  const Account = async () => {
+  const getAccount = async () => {
     await axios
       .get(
         'https://timcevent.herokuapp.com/users',
@@ -29,7 +29,7 @@ const MyAccount = () => {
   };
 
   useEffect(() => {
-    Account();
+    getAccount();
   }, []);
 
   return (
