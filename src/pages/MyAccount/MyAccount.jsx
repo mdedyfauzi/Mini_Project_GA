@@ -4,33 +4,34 @@ import axios from 'axios';
 import './myAccount.css';
 
 const MyAccount = () => {
-  const [myAccount, setMyAccount] = useState([]);
-  const getAccount = async () => {
-    await axios
-      .get(
-        'https://timcevent.herokuapp.com/users',
-        {
-          Headers: {
-            token: localStorage.getItem('token'),
-          },
-        },
-        {
-          email: 'larina@gmail.com',
-          password: '@larinA99',
-        }
-      )
-      .then((response) => {
-        setMyAccount(response.data.userDetail);
-        console.log(myAccount);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  /*const [myAccount, setMyAccount] = useState([]);
+  
   };
 
   useEffect(() => {
+    const getAccount = async () => {
+      await axios
+        .get(
+          'https://timcevent.herokuapp.com/users',
+          {
+            Headers: {
+              token: localStorage.getItem('token'),
+            },
+          },
+          {
+            email: 'larina@gmail.com',
+            password: '@larinA99',
+          }
+        )
+        .then((response) => {
+          setMyAccount(response.data.userDetail);
+          console.log(myAccount);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     getAccount();
-  }, []);
+  }, []);*/
 
   return (
     <>
