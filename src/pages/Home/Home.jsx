@@ -1,26 +1,25 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import SearchIcon from '@mui/icons-material/Search';
+import axios from 'axios';
 import { OutlinedInput, InputAdornment, FormControl, Button } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import Card from '../../components/Card/Card';
-import './home.css';
 import { useHistory } from 'react-router';
+import './home.css';
 
 const Home = () => {
   const history = useHistory();
-  const [getEventsSoon, setGetEventsSoon] = useState([]);
+
+  const [eventsSoon, setEventsSoon] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
-
-  const eventSoon = getEventsSoon;
 
   useEffect(() => {
     const getApi = async () => {
       await axios
         .get('https://timcevent.herokuapp.com/events/home')
         .then(function (response) {
-          setGetEventsSoon(response.data.dataStarted.slice(0, 4));
-          console.log(getEventsSoon);
+          setEventsSoon(response.data.dataStarted.slice(0, 4));
+          //console.log(getEventsSoon);
         })
         .catch(function (error) {
           console.log(error);
@@ -100,14 +99,22 @@ const Home = () => {
               <h1>Attend an event starting soon</h1>
               <p onClick={() => history.push('/search')}>more events</p>
             </div>
-            <div className="content-card">{eventSoon && eventSoon.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
+            <div className="content-card">
+              {eventsSoon.map((item) => (
+                <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />
+              ))}
+            </div>
           </div>
           <div className="content-wrapper">
             <div className="content-heading">
               <h1>Design events</h1>
               <p onClick={() => history.push('/search')}>more events</p>
             </div>
-            <div className="content-card">{eventSoon && eventSoon.map((item) => <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />)}</div>
+            <div className="content-card">
+              {eventsSoon.map((item) => (
+                <Card image={item.photoEvent} category={item.category.name} date={item.dateStart} title={item.title} author={item.speakerName} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
