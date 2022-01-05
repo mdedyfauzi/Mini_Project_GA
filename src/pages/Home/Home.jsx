@@ -19,7 +19,7 @@ const Home = () => {
         .get('https://timcevent.herokuapp.com/events/home')
         .then(function (response) {
           setEventsSoon(response.data.dataStarted.slice(0, 4));
-          //console.log(getEventsSoon);
+          console.log(response);
         })
         .catch(function (error) {
           console.log(error);
